@@ -1,5 +1,5 @@
 cls
-rem git pull
+git pull
 git status
 timeout /t 2
 git add .
