@@ -1,1 +1,18 @@
 https://github.com/ISC-UPA/2026-1-TIID4-SDA
+
+# Crear un Entorno Virtual (Recomendado)
+python -m venv venv
+
+# Para activar el entorno virtual
+venv\Scripts\activate
+
+# Crear archivo principal
+type nul > main.py
+
+# Crear archivo de dependencias
+pip freeze > requirements.txt
+
+# Instalar paquetes específicos
+pip install numpy pandas requests
+
+
