@@ -17,3 +17,6 @@ pip install numpy pandas requests
 
 G:\Mi unidad\home\core\code\2026-1-TIID4-SDA>python main.py
 python parametros.py juan carlos
+
+print(f"{nombres[i]:<8}", end="")
+ 
