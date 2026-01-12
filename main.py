@@ -23,7 +23,7 @@ def configurar_programa():
 def ejecutar_tarea_principal():
     """Lógica principal del programa"""
     print("Ejecutando tarea principal...")
-    resultado = sumar(5, 3)
+    resultado = calc.sumar(5, 3)
     print(f"Resultado: {resultado}")
 
 def main():  
