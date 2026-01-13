@@ -8,23 +8,26 @@ def imprimir_matriz(matriz):
 def transponer_matriz(matriz):
     F = len(matriz)
     C = len(matriz[0])
+    
     transpuesta = [[0] * F for i in range(C)]
     # int[][] transpuesta = new int[C][F];
+
     for i in range(F):
         for j in range(C):
             transpuesta[j][i] = matriz[i][j]
     return transpuesta      
 
-# Ejemplo de uso
-matriz_ejemplo = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+if __name__ == "__main__":
+    # Ejemplo de uso
+    matriz_ejemplo = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
 
-transpuesta = transponer_matriz(matriz_ejemplo)
-print("Matriz original:")
-imprimir_matriz(matriz_ejemplo)
+    transpuesta = transponer_matriz(matriz_ejemplo)
+    print("Matriz original:")
+    imprimir_matriz(matriz_ejemplo)
 
-print("\nMatriz transpuesta:")
-imprimir_matriz(transpuesta)
+    print("\nMatriz transpuesta:")
+    imprimir_matriz(transpuesta)

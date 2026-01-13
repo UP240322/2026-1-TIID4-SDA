@@ -6,8 +6,10 @@ matriz = [
     [10, 11, 12]
 ]
 
+
 F = len(matriz)        # número de filas
 C = len(matriz[0])     # número de columnas
+
 
 # Proceso: calcular la transpuesta
 #transpuesta = [[0] * F for _ in range(C)]

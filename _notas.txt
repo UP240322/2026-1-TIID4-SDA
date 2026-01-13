@@ -16,7 +16,7 @@ pip freeze > requirements.txt
 pip install numpy pandas requests
 
 G:\Mi unidad\home\core\code\2026-1-TIID4-SDA>python main.py
-python Argumentos.py juan carlos
+python argumentos.py juan carlos
 
 print(f"{nombres[i]:<8}", end="")
 
