@@ -1,5 +1,5 @@
 # definir una funcion que reciba una matriz y la imprima
-def imprimir_matriz(matriz):
+def imprimir_matriz(matriz):      # snake_case,  camelCase   
     for i in range(len(matriz)):
         for j in range(len(matriz[i])):
             print(matriz[i][j], end="\t")

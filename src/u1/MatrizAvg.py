@@ -14,7 +14,7 @@ F = len(calificaciones)        # número de filas (alumnos)
 C = len(calificaciones[0])     # número de columnas (materias)
 
 avg_alumnos = [0.0] * F
-avg_materias = [0.0] * C
+avg_materias = [0.0 for _ in range(C)]   # lista por comprensión
 avg_total = 0.0
 
 for i in range(F):
