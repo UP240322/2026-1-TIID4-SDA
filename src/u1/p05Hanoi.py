@@ -14,7 +14,7 @@ def hanoi(n, f, to, via):
         hanoi(n-1, via, to, f)                          # step 3
 
 os.system('cls')
-n = 3
+n = 4
 f = '1'
 to = '3'
 via = '2'
