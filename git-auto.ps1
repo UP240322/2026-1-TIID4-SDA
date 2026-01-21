@@ -17,7 +17,7 @@ if (-not (git status --porcelain)) {
 git add .
 git commit -m "Auto $fecha"
 git push
-
+echo ""
 Pause
 Clear-Host
 
