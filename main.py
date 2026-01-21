@@ -26,6 +26,7 @@ def main():
 
 # 5. Punto de entrada principal
 if __name__ == "__main__":
+    os.system('cls') # Comando para limpiar pantalla en Windows
     print(calc.sumar(5, 3))
     main()
     

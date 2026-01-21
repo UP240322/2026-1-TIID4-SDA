@@ -12,7 +12,7 @@ def transponer_matriz(matriz):
     transpuesta = [[0] * F for i in range(C)]
     #transpuesta = [[0 for _ in range(F)] for _ in range(C)]
 
-    # int[][] transpuesta = new int[C][F];
+    # int[][] transpuesta = new int[C][F];  // Java
 
     for i in range(F):
         for j in range(C):
