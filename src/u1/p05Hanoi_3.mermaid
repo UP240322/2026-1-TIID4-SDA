@@ -1,0 +1,35 @@
+graph TD
+    A["<b>LLAMADA INICIAL</b><br/>hanoi(3, '1', '3', '2')<br/>📍 Mover 3 discos de '1' a '3' usando '2'"] --> B["<b>PASO 1</b><br/>hanoi(2, '1', '2', '3')<br/>📍 Mover 2 discos de '1' a '2' usando '3'"]
+    A --> C["<b>PASO 2</b><br/>💿 Mover disco 3<br/>de '1' → '3'<br/>contador: 4"]
+    A --> D["<b>PASO 3</b><br/>hanoi(2, '2', '3', '1')<br/>📍 Mover 2 discos de '2' a '3' usando '1'"]
+    
+    B --> B1["<b>PASO 1.1</b><br/>hanoi(1, '1', '3', '2')<br/>📍 Mover 1 disco de '1' a '3'"]
+    B --> B2["<b>PASO 1.2</b><br/>💿 Mover disco 2<br/>de '1' → '2'<br/>contador: 2"]
+    B --> B3["<b>PASO 1.3</b><br/>hanoi(1, '3', '2', '1')<br/>📍 Mover 1 disco de '3' a '2'"]
+    
+    B1 --> B1E["✅ CASO BASE n=1<br/>💿 Move disk 1<br/>from '1' to '3'<br/>contador: 1"]
+    
+    B3 --> B3E["✅ CASO BASE n=1<br/>💿 Move disk 1<br/>from '3' to '2'<br/>contador: 3"]
+    
+    D --> D1["<b>PASO 3.1</b><br/>hanoi(1, '2', '1', '3')<br/>📍 Mover 1 disco de '2' a '1'"]
+    D --> D2["<b>PASO 3.2</b><br/>💿 Mover disco 2<br/>de '2' → '3'<br/>contador: 6"]
+    D --> D3["<b>PASO 3.3</b><br/>hanoi(1, '1', '3', '2')<br/>📍 Mover 1 disco de '1' a '3'"]
+    
+    D1 --> D1E["✅ CASO BASE n=1<br/>💿 Move disk 1<br/>from '2' to '1'<br/>contador: 5"]
+    
+    D3 --> D3E["✅ CASO BASE n=1<br/>💿 Move disk 1<br/>from '1' to '3'<br/>contador: 7"]
+    
+    style A fill:#4a90e2,color:#fff,stroke:#333
+    style B fill:#f5a623,color:#000,stroke:#333
+    style B1 fill:#f8e71c,color:#000,stroke:#333
+    style B2 fill:#7ed321,color:#000,stroke:#333
+    style B3 fill:#f8e71c,color:#000,stroke:#333
+    style C fill:#7ed321,color:#000,stroke:#333
+    style D fill:#f5a623,color:#000,stroke:#333
+    style D1 fill:#f8e71c,color:#000,stroke:#333
+    style D2 fill:#7ed321,color:#000,stroke:#333
+    style D3 fill:#f8e71c,color:#000,stroke:#333
+    style B1E fill:#d0021b,color:#fff,stroke:#333
+    style B3E fill:#d0021b,color:#fff,stroke:#333
+    style D1E fill:#d0021b,color:#fff,stroke:#333
+    style D3E fill:#d0021b,color:#fff,stroke:#333

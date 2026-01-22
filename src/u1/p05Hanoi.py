@@ -17,8 +17,8 @@ os.system('cls')
 contador = 0
 n = 3
 f = '1'
-to = '2'
-via = '3'
+to = '3'
+via = '2'
 hanoi(n, f, to, via)
 print("Total movimientos:", contador, "(esperado:", 2**n - 1, ")")
 
