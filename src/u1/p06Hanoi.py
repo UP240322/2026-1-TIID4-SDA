@@ -1,10 +1,9 @@
 import os
 
-
 def hanoi(n, f, to, via):
     global contador
     
-    if n == 1:
+    if n == 1:   # base case
         contador += 1
         print(contador, "Move disk 1 from",f,"to",to)
     else:
