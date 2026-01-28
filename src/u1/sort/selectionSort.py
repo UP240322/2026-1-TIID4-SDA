@@ -1,5 +1,5 @@
 
-def seleccionSort(arr):
+def selection_Sort(arr):
     # crear una copia de arr
     arr_copy = arr[:]
     # arr_copy = arr.copy()
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     lista = [64, 34, 25, 5, 22, 11, 90, 12]
     lista = [7,12,9,11,3]
     print("Lista original:", lista)
-    seleccionSort(lista)
+    selection_Sort(lista)
     print("Lista ordenada:", lista)
 
 

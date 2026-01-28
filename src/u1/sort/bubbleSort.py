@@ -24,24 +24,27 @@ def bubble_sort(arr):
 if __name__ == "__main__":
     min = 11
     max = 20
-    size = 10
+    size = 10_000
     aleatorio = int(random.random() * ((max - min) + 1)) + min
     aleatorio = random.randint(min, max)
 
     lista = [64, 34, 25, 5, 22, 11, 90, 12]
+    #lista.sort()
     # generar una semilla aleatoria para reproducibilidad
     random.seed(42)
 
     lista = [random.randint(min, max) for _ in range(size)]
 
-    print("\nLista original:", lista)
+    #print("\nLista original:", lista)
     lista_ordenada = bubble_sort(lista)
-    print("\nLista ordenada:", lista_ordenada)
+    #print("\nLista ordenada:", lista_ordenada)
 
     # Medir tiempo de Bubble Sort
     start_time = time.perf_counter()
+    print(start_time*1000)
     sorted_bubble = bubble_sort(lista)
     end_time = time.perf_counter()
+    print(end_time*1000)
     bubble_time = (end_time - start_time) * 1000  # Convertir a milisegundos
 
     print(f"\n Bubble Sort:")
