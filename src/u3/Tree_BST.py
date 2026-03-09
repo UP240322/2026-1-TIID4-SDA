@@ -6,9 +6,17 @@ class TreeNode:
         self.data = data
         self.left = None
         self.right = None
-
+    
     def __str__(self):
         return str(self.left.data if self.left else None) + "<-" + str(self.data) + "->" + str(self.right.data if self.right else None)
+   
+
+def show(nodo_actual, prefix="", is_left=True):
+    if nodo_actual:
+        show(nodo_actual.right, prefix + ("│   " if is_left else "    "), False)
+        print(prefix + ("└── " if is_left else "┌── ") + str(nodo_actual.data))
+        show(nodo_actual.left, prefix + ("    " if is_left else "│   "), True)
+
 
 def inOrderTraversal(node):
     if node is None:
@@ -91,30 +99,40 @@ def main():
 
     node19.left = node18
 
+    show(root)
+    print(root)
     print("In-order Traversal of the BST:")
     inOrderTraversal(root)    
     print()  # for a new line after traversal output
 
-    result = search(root, 19)
+    result = search(root, 14)
     if result:
-        print(f" {result.data}")
+        print(f" Existente: {result.data}")
     else:
         print("Value not found in the BST.")
     
     print(result) # __str__
 
+
     # Inserting new value into the BST
+    print()
     insert(root, 10)
     inOrderTraversal(root) 
+    print()
+    show(root)
+    print()
 
     # Find Lowest
     print("\nLowest value:",minValueNode(root).data)
 
     # Delete node 15
-    delete(root,12)
+    delete(root,17)
 
-    print("\nIn-order Traversal after deleting 15:")
+    print("\nIn-order Traversal")
     inOrderTraversal(root)
+    print()
+    show(root)
+    
 
 
 
