@@ -1,5 +1,6 @@
 # AVL Georgy Adelson-Velsky and Evgenii Landis
 # AVL trees are self-balancing
+import os
 
 class TreeNode:
     def __init__(self, data):
@@ -38,7 +39,7 @@ def leftRotate(x):
     y.height = 1 + max(getHeight(y.left), getHeight(y.right))
     return y
 
-def insertar(node, data):
+def insertar(node, data):  # no permite duplicados
     if node is None:
         return TreeNode(data)
     else:
@@ -47,12 +48,61 @@ def insertar(node, data):
         elif data > node.data:
             node.right = insertar(node.right, data)
     return node
+# -->
+def balancear(node):
+    # Update the balance factor and balance the tree
+    node.height = 1 + max(getHeight(node.left), getHeight(node.right))
+    balance = getBalance(node)
 
-def insertAVL(node, data):
+    # Balancing the tree
+    # Left Left
+    if balance > 1 and getBalance(node.left) >= 0:
+        return rightRotate(node)
+
+    # Left Right
+    if balance > 1 and getBalance(node.left) < 0:
+        node.left = leftRotate(node.left)
+        return rightRotate(node)
+
+    # Right Right
+    if balance < -1 and getBalance(node.right) <= 0:
+        return leftRotate(node)
+
+    # Right Left
+    if balance < -1 and getBalance(node.right) > 0:
+        node.right = rightRotate(node.right)
+        return leftRotate(node)
+
+    return node
+
+
+def insert(node, data): # si permite duplicados
+    if node is None:
+        #self.root = TreeNode(data)
+        return TreeNode(data)
+    else:
+        insertNode(node, TreeNode(data))
+        node = balancear(node)
+        return node
+        
+def insertNode(node, newNode):
+    if newNode.data <= node.data:
+        if node.left is None:
+            node.left = newNode
+        else:
+            insertNode(node.left, newNode)
+    else: 
+        if node.right is None:
+            node.right = newNode
+        else:
+            insertNode(node.right, newNode)
+# <--
+
+def insertAVL(node, data): # balancea el árbol
     if not node:
         return TreeNode(data)
 
-    if data < node.data:
+    if data <= node.data:   # <= para permitir duplicados, < para no permitir duplicados
         node.left = insertAVL(node.left, data)
     elif data > node.data:
         node.right = insertAVL(node.right, data)
@@ -156,20 +206,26 @@ def delete(node, data):
 
     return node
 
+os.system('cls' if os.name == 'nt' else 'clear')
+
 # insertAVLing nodes
 root = None
+
+letters = 'murcielagos'
 letters = [7, 3, 13, 19, 8, 14, 15, 18]
 
 for letter in letters:
-    root = insertAVL(root, letter) # insertAVL o insertAVLar
+    root = insertAVL(root, letter) # insertAVL o insertar o insert
+
 showTree(root)
 inOrderTraversal(root)
 
-print('\nDeleting 13')
-root = delete(root, 13)
+'''
+print('\nDeleting r')
+root = delete(root, 'r')
 showTree(root)
 inOrderTraversal(root)
-
+'''
 
 
 

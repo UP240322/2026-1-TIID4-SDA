@@ -40,4 +40,5 @@ import src.mat.fn as app
 print(f"{nombres[i]:<8}", end="")
 
 
+ python.analysis.typeCheckingMode
  

@@ -8,8 +8,9 @@ class TreeNode:
         self.right = None
     
     def __str__(self):
-        return str(self.left.data if self.left else None) + "<-" + str(self.data) + "->" + str(self.right.data if self.right else None)
-   
+        return str(self.left.data if self.left else None) + "<-" + \
+               str(self.data) + "->" + \
+               str(self.right.data if self.right else None)
 
 def show(nodo_actual, prefix="", is_left=True):
     if nodo_actual:
@@ -36,7 +37,7 @@ def search(node, target):
     else:
         return search(node.right, target)
 
-def insert(node, data):
+def insert(node, data): # no permite duplicados
     if node is None:
         return TreeNode(data)
     else:
@@ -76,6 +77,22 @@ def delete(node, data):
         node.right = delete(node.right, node.data)
 
     return node
+
+def niveles_BFS(node):
+    niveles = []
+    queue = [node]
+    while queue:
+        nivel = []
+        for i in range(len(queue)):
+            node = queue.pop(0)
+            if node:
+                nivel.append(node.data)
+                queue.append(node.left)
+                queue.append(node.right)
+        if nivel:
+            niveles.append(nivel)
+
+    return niveles
 
 
 def main():
@@ -132,13 +149,25 @@ def main():
     inOrderTraversal(root)
     print()
     show(root)
-    
-
-
 
 if __name__ == "__main__":
     os.system("cls")
     main()
+    
+    root = None
+    animal = "maldonado_zapata"
+    for letra in animal:
+        root = insert(root, letra)
+        # print("letra: ", letra, "root: ", root)
     print()
+    show(root)
+    print()
+    inOrderTraversal(root)
+    print("---Niveles---")
+    niveles = niveles_BFS(root)
+    print(niveles)
+    print()
+    inOrderTraversal(root)
+
     os.system("pause")
 
